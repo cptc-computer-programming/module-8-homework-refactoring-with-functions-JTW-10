@@ -8,17 +8,8 @@ DAYS_IN_WEEK = 7
 FEB_DAYS = 28
 LONG_MONTH_DAYS = 31  # Jan, Mar, May, Jul, Aug, Oct, Dec
 SHORT_MONTH_DAYS = 30 # Apr, Jun, Sep, Nov
-def main():
-    # -----------------------------
-    # User Input
-    # -----------------------------
-    user_month = int(input("Enter a month (1-12): "))
-    user_day = int(input("Enter a day (1-31): "))
 
-    # Copy input values so we can keep originals for final output
-    month = user_month
-    day = user_day
-
+def find_date_one_week_later(month, day):
     # -----------------------------
     # Add 7 days
     # -----------------------------
@@ -48,6 +39,18 @@ def main():
     # Wrap around past December
     if month > 12:
         month %= 12
+
+    return(month, day)
+
+
+def main():
+    # -----------------------------
+    # User Input
+    # -----------------------------
+    user_month = int(input("Enter a month (1-12): "))
+    user_day = int(input("Enter a day (1-31): "))
+
+    month, day = find_date_one_week_later(user_month, user_day)
 
     # -----------------------------
     # Output
